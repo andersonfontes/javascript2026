@@ -1,0 +1,35 @@
+<h1 id="titulo">Olá, Mundo!</h1> <!-- crio e identifico o elemento que sera alterado -->
+<button id="botao" onmouseover="chovendo()">MUDAR TEXTO</button> <!-- OUVINTES NO PROPRIO HTML-->
+<button id="botaoreiniciar" onclick="reiniciar()">REINICIAR</button>
+
+<script>
+    // LINKO CADA ELEMENTO NO MEU JS USANDO CONSTANTES E getElementById()
+    const titulo = document.getElementById("titulo") 
+    const botao = document.getElementById("botao")
+    const botaoreiniciar = document.getElementById('botaoreiniciar')
+
+    // ADICIONO OUVINTE + FUNÇÃO NO CLIQUE DO BOTAO
+    botao.addEventListener("click", () => {
+        titulo.innerText = "Bem-vindo!"
+    })
+
+    // ADICIONO OUVINTE + FUNÇÃO PARA QUANDO O CURSOR SAIR DE CIMA DO BOTÃO
+    botao.addEventListener("mouseout", () => {
+        titulo.innerText = "Olá Mundo...."
+        titulo.style.color = 'red'
+    })
+
+    //IMPLEMENTAÇÃO DA FUNÇÃO CHOVENDO
+    function chovendo()
+    {
+        titulo.innerText = "ESTA CHOVENDO"
+    }
+
+    //IMPLEMENTAÇÃO DA FUNÇÃO REINICIAR
+    function reiniciar(){
+        titulo.innerText = "Olá, Mundo!"
+        titulo.style.color = 'black'
+    }
+
+
+</script>

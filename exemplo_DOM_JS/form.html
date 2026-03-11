@@ -1,0 +1,20 @@
+<body>
+    <form id="cadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="status"></p>
+</body>
+
+<script>
+    const form = document.getElementById("cadastro"); //capturando os elementos que vou monitorar e alterar
+    const status = document.getElementById("status");    
+
+    form.addEventListener("submit", (event) => {  //crio um monitor para o evento submit do form
+        event.preventDefault(); // Impede o envio padrão do formulário
+        const nome = document.getElementById("nome").value; //capturo o valor do campo nome
+        status.innerText = "USUARIO " + nome + " CADASTRADO COM SUCESSO!" // insiro o nome na msg e exibo no p status
+        cadastro.hidden = true // escondo o form
+    });
+</script>
