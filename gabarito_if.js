@@ -110,9 +110,9 @@ console.log("Resultado: " + resultado)
 // A renda mensal deve ser maior que R$2.000.
 // O cliente não pode ter nome sujo (ou seja, não pode estar na lista de inadimplentes). Se todas as condições forem atendidas, o empréstimo é aprovado. Caso contrário, informe ao cliente o motivo pelo qual o empréstimo foi negado.
 
-let idade2 = 25;
-let rendaMensal = 3000;
-let nomeSujo = false;
+let idade2 = 25; //INT
+let rendaMensal = 3000; //INT
+let nomeSujo = false; //BOOLEAN
 
 if (idade2 > 18) {
   if (rendaMensal > 2000) {
