@@ -1,13 +1,17 @@
-// 4. Verificar se a palavra "gosto" está presente
-let frase2 = "Eu gosto de programar";
+// PERCORRENDO CADA ITEM DE UM ARRAY USANDO **FOR**
 
+frutas = ["maçã", "banana", "laranja", "melancia"]
 
-//console.log(frase2.includes("gosto")); // true
-
-if(frase2.includes("gosto")) {
-    console.log("voce gosta de programar")
-}
-else{
-    console.log("voce NAO gosta de programar")
+for (let i = 0; i < frutas.length  ; i++) {
+    console.log("Fruta : " + frutas[i])
 }
 
+
+// USANDO **FOR EACH**
+console.log("--- USANDO FOR EACH --- ")
+
+frutas.forEach(fruta => {
+    console.log("-----")
+    console.log("Fruta : " + fruta)
+    console.log("-----")
+});
