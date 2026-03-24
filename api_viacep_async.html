@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta CEP Async</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { padding: 8px; width: 250px; }
+    </style>
+</head>
+<body>
+
+    <h2>Buscar Endereço</h2>
+    <div class="form-group">
+        <label>CEP:</label>
+        <input type="text" id="cep" maxlength="8" placeholder="Digite o CEP (apenas números)">
+    </div>
+    <div class="form-group">
+        <label>Logradouro:</label>
+        <input type="text" id="rua">
+    </div>
+    <div class="form-group">
+        <label>Bairro:</label>
+        <input type="text" id="bairro">
+    </div>
+    <div class="form-group">
+        <label>Cidade:</label>
+        <input type="text" id="cidade">
+    </div>
+    <div class="form-group">
+        <label>Estado:</label>
+        <input type="text" id="uf">
+    </div>
+
+    <script>
+        // Função assíncrona popular com async/await
+        const consultarCep = async () => {
+            const cep = document.getElementById('cep').value;
+            const url = `https://viacep.com.br{cep}/json/`;
+
+            // Validação simples de 8 dígitos
+            if (cep.length !== 8) {
+                alert('CEP inválido');
+                return;
+            }
+
+            try {
+                // Fetch API assíncrona
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.erro) {
+                    alert('CEP não encontrado!');
+                    return;
+                }
+
+                // Preenchendo os campos
+                document.getElementById('rua').value = data.logradouro;
+                document.getElementById('bairro').value = data.bairro;
+                document.getElementById('cidade').value = data.localidade;
+                document.getElementById('uf').value = data.uf;
+
+            } catch (error) {
+                console.error('Erro ao buscar CEP:', error);
+            }
+        };
+
+        // Adiciona evento de "sair do campo" (blur) para buscar
+        document.getElementById('cep').addEventListener('blur', consultarCep);
+    </script>
+</body>
+</html>

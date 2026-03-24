@@ -14,7 +14,7 @@ if (palpite == numerosecreto) {
 while (palpite != numerosecreto) {
     console.log("\n VOCE ERROU!! ")
 
-    if(palpite > numerosecreto){  
+    if(palpite < numerosecreto){  
         console.log("tente mais alto")      
     }
     else{
@@ -24,6 +24,7 @@ while (palpite != numerosecreto) {
     tentativas++
     if (tentativas == 5) {
         console.log("ACABARAM AS TENTATIVAS !!")
+        break
     }
 
     console.log("*** NOVA TENTATIVA ***")
